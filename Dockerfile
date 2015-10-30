@@ -28,6 +28,5 @@ RUN make && make install && make samples
 WORKDIR /root
 
 EXPOSE 5060/udp
-EXPOSE 10000-20000/udp
 
 CMD ["/usr/sbin/asterisk", "-vvvvvvv"]
