@@ -26,19 +26,7 @@ COPY menuselect.makeopts /usr/src/certified-asterisk-13.1-cert2/menuselect.makeo
 RUN sed -i '/NATIVE_ARCH=/c \NATIVE_ARCH=0' /usr/src/certified-asterisk-13.1-cert2/build_tools/menuselect-deps
 RUN make && make install && make samples
 WORKDIR /root
-RUN sed -i "s/rtpend=20000/rtpend=10010/g" /etc/asterisk/rtp.conf
-
-EXPOSE 5060/udp
-EXPOSE 10000/udp
-EXPOSE 10001/udp
-EXPOSE 10002/udp
-EXPOSE 10003/udp
-EXPOSE 10004/udp
-EXPOSE 10005/udp
-EXPOSE 10006/udp
-EXPOSE 10007/udp
-EXPOSE 10008/udp
-EXPOSE 10009/udp
-EXPOSE 10010/udp
+RUN sed -i "s/rtpstart=10000/rtpstart=16384/g" /etc/asterisk/rtp.conf
+RUN sed -i "s/rtpend=20000/rtpend=16394/g" /etc/asterisk/rtp.conf
 
 CMD ["/usr/sbin/asterisk", "-vvvvvvv"]
