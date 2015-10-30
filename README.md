@@ -9,7 +9,7 @@ Usage
 
 # Run the following command:
 
-docker run -d --restart=always --name my-asterisk quaipsolutions/asterisk
+docker run -d --expose-all --restart=always --name my-asterisk quaipsolutions/asterisk
 
 # Enter the asterisk console:
 
@@ -29,4 +29,4 @@ Using a custom configuration folder
 
 The asterisk configuration is on /etc/asterisk and de image create official sample files, If you want to use a customized asterisk configuration, you can create your alternative configuration directory on the host machine and then mount that directory location as /etc/asterisk inside the asterisk container:
 
-$ docker run --expose-all --name some-asterisk -v /my/custom/folder/asterisk:/etc/asterisk
+$ docker run --expose-all --restart-always --name some-asterisk -v /my/custom/folder/asterisk:/etc/asterisk
