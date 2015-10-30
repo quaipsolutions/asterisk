@@ -9,7 +9,7 @@ Usage
 
 # Run the following command:
 
-docker run -d --expose-all --restart=always --name my-asterisk quaipsolutions/asterisk
+docker run -d --restart=always --name my-asterisk quaipsolutions/asterisk
 
 # Enter the asterisk console:
 
