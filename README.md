@@ -9,7 +9,7 @@ Usage
 
 # Run the following command:
 
-docker run -d --restart=always --name my-asterisk quaipsolutions/asterisk
+docker run -d --name my-asterisk quaipsolutions/asterisk
 
 # Enter the asterisk console:
 
@@ -25,8 +25,3 @@ certain conditions. Type 'core show license' for details.
 Connected to Asterisk 13.1-cert2 currently running on c28b7896d2d6 (pid = 1)
 c28b7896d2d6*CLI>
 
-Using a custom configuration folder
-
-The asterisk configuration is on /etc/asterisk and de image create official sample files, If you want to use a customized asterisk configuration, you can create your alternative configuration directory on the host machine and then mount that directory location as /etc/asterisk inside the asterisk container:
-
-$ docker run --expose-all --restart-always --name some-asterisk -v /my/custom/folder/asterisk:/etc/asterisk
