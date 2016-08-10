@@ -29,4 +29,9 @@ WORKDIR /root
 RUN sed -i "s/rtpstart=10000/rtpstart=16384/g" /etc/asterisk/rtp.conf
 RUN sed -i "s/rtpend=20000/rtpend=16394/g" /etc/asterisk/rtp.conf
 
+#Expose volumes
+VOLUME /var/log/asterisk
+VOLUME /etc/asterisk
+VOLUME /var/lib/asterisk
+
 CMD ["/usr/sbin/asterisk", "-vvvvvvv"]
