@@ -17,14 +17,14 @@ WORKDIR pjproject
 RUN ./configure --prefix=/usr --enable-shared --disable-sound --disable-resample --disable-video --disable-opencore-amr CFLAGS='-O2 -DNDEBUG'
 RUN make dep &&  make && make install && ldconfig
 WORKDIR /usr/src
-RUN wget http://downloads.asterisk.org/pub/telephony/certified-asterisk/certified-asterisk-13.1-current.tar.gz \
-&& tar -zxvf certified-asterisk-13.1-current.tar.gz
-WORKDIR /usr/src/certified-asterisk-13.1-cert2
-RUN sh contrib/scripts/get_mp3_source.sh
+RUN wget http://downloads.asterisk.org/pub/telephony/certified-asterisk/asterisk-certified-13.8-current.tar.gz \
+&& tar -zxvf asterisk-certified-13.8-current.tar.gz
+WORKDIR /usr/src/asterisk-certified-13.8-cert1
+RUN sh ./contrib/scripts/get_mp3_source.sh
 RUN ./configure CFLAGS='-g -O2 -mtune=native' --libdir=/usr/lib
-COPY menuselect.makeopts /usr/src/certified-asterisk-13.1-cert2/menuselect.makeopts
-RUN sed -i '/NATIVE_ARCH=/c \NATIVE_ARCH=0' /usr/src/certified-asterisk-13.1-cert2/build_tools/menuselect-deps
-RUN make && make install && make samples
+COPY menuselect.makeopts /usr/src/asterisk-certified-13.8-cert1/menuselect.makeopts
+RUN sed -i '/NATIVE_ARCH=/c \NATIVE_ARCH=0' /usr/src/asterisk-certified-13.8-cert1/build_tools/menuselect-deps
+RUN make clean && make && make install && make samples
 WORKDIR /root
 RUN sed -i "s/rtpstart=10000/rtpstart=16384/g" /etc/asterisk/rtp.conf
 RUN sed -i "s/rtpend=20000/rtpend=16394/g" /etc/asterisk/rtp.conf
