@@ -15,13 +15,13 @@ docker run -d --name my-asterisk quaipsolutions/asterisk
 
 docker exec -it my-asterisk rasterisk -vvvv
 
-Asterisk 13.1-cert2, Copyright (C) 1999 - 2014, Digium, Inc. and others. 
+Asterisk 13.8-cert1, Copyright (C) 1999 - 2014, Digium, Inc. and others. 
 Created by Mark Spencer <markster@digium.com>
 Asterisk comes with ABSOLUTELY NO WARRANTY; type 'core show warranty' for details.
 This is free software, with components licensed under the GNU General Public  
 License version 2 and other licenses; you are welcome to redistribute it under
 certain conditions. Type 'core show license' for details.
 
-Connected to Asterisk 13.1-cert2 currently running on c28b7896d2d6 (pid = 1)
+Connected to Asterisk 13.8-cert1 currently running on c28b7896d2d6 (pid = 1)
 c28b7896d2d6*CLI>
 
